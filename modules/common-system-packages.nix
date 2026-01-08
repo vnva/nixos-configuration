@@ -2,6 +2,7 @@
 
 [
   pkgs.curl
+  pkgs.fastfetch
   pkgs.git
   pkgs.jq
   pkgs.just

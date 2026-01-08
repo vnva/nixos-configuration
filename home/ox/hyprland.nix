@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, osConfig, ... }:
 
 let
-  wallpaper = "${../../assets/wallpapers/warm-texture.jpg}";
+  wallpaper = "${../../assets/wallpapers/dark-texture.jpg}";
 in {
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
     settings = {
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
@@ -15,6 +16,38 @@ in {
         "repeat_rate" = 50;
       };
       animations = { enabled = false; };
+      monitor = lib.mkIf (osConfig.networking.hostName == "laptop") [
+        "eDP-1,preferred,auto,1.8"
+      ];
+      general = {
+        "gaps_in" = 5;
+        "gaps_out" = "5 10 10 10";
+        "border_size" = 0;
+        "resize_on_border" = false;
+        "layout" = "dwindle";
+      };
+      decoration = {
+        "rounding" = 5;
+        shadow = {
+          enabled = false;
+        };
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 2;
+          new_optimizations = true;
+          noise = 0.2;
+        };
+      };
+      misc = {
+        "disable_hyprland_logo" = true;
+      };
+      dwindle = {
+        "pseudotile" = true;
+        "preserve_split" = true;
+        "default_split_ratio" = 1.05;
+        "smart_split" = true;
+      };
       bind = [
         # apps
         "$mod, Q, exec, $terminal"
@@ -36,25 +69,10 @@ in {
           "$mod SHIFT, ${workspace}, movetoworkspace, ${workspace}"
         ]
       ) 9));
-      general = {
-        "gaps_in" = 5;
-        "gaps_out" = 10;
-        "border_size" = 0;
-        "resize_on_border" = false;
-        "layout" = "dwindle";
-      };
-      decoration = {
-        "rounding" = 8;
-      };
-      misc = {
-        "disable_hyprland_logo" = true;
-      };
-      dwindle = {
-        "pseudotile" = true;
-        "preserve_split" = true;
-        "default_split_ratio" = 1.05;
-        "smart_split" = true;
-      };
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
     };
   };
 

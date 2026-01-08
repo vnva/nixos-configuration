@@ -10,13 +10,21 @@
 inputs.nixpkgs.lib.nixosSystem (
   let
     vars = import ../vars;
+
+    overlays = [
+      (final: prev: rec {
+        quickshell = inputs.quickshell.packages.${system}.default;
+      })
+    ];
   in {
   inherit system;
 
   modules = [
     inputs.disko.nixosModules.disko
     inputs.sops-nix.nixosModules.sops
+    inputs.stylix.nixosModules.stylix
 
+    { nixpkgs.overlays = overlays; }
 
     {
       sops.defaultSopsFile = ../secrets/default.yaml;
@@ -31,6 +39,7 @@ inputs.nixpkgs.lib.nixosSystem (
       environment.enableAllTerminfo = true;
       nix.settings.experimental-features = [ "nix-command" "flakes" ];
       users.mutableUsers = false;
+      networking.hostName = host;
     }
 
     ({ pkgs, ... }: {

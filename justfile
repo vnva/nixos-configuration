@@ -3,3 +3,6 @@ rebuild HOST_NAME TARGET_HOST:
 
 deploy HOST_NAME TARGET_HOST:
   nix run github:nix-community/nixos-anywhere -- --flake ".#{{HOST_NAME}}" {{TARGET_HOST}}
+
+quickshell:
+  quickshell -p ./home/ox/quickshell/default

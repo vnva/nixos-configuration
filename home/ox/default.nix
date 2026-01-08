@@ -1,12 +1,26 @@
-{ ... }:
+{ pkgs, config, ... }:
 
 {
+  imports = [
+    ./stylix.nix
+    ./hyprland.nix
+  ];
+
   home.stateVersion = "25.05";
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  programs.ghostty = import ../../modules/ghostty {};
+  home.packages = [
+    pkgs.dconf
+    pkgs.ashell
+  ] ++ (import ../../modules/common-user-packages.nix { inherit pkgs; });
 
-  imports = [
-    ./hyprland.nix
-  ];
+  dconf.enable = true;
+
+  programs.quickshell = import ./quickshell { inherit pkgs config; };
+
+  programs.ghostty = import ../../modules/ghostty {
+    extraSettings = {
+      background-opacity = 0.85;
+    };
+  };
 }
