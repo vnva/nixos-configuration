@@ -21,12 +21,11 @@ Rectangle {
     color: {
       if (!batteryWidget.hasBattery) return Colors.base05
 
-      var pct = batteryWidget.battery.percentage
-      if (pct <= 20) return Colors.base08  // red
-      if (pct <= 50) return Colors.base09  // orange
+      if (batteryWidget.battery.percentage <= .2) return Colors.base09  // red
+      if (batteryWidget.battery.percentage <= .5) return Colors.base08  // orange
       return Colors.base05  // normal
     }
     font.pixelSize: 12
-    text: batteryWidget.hasBattery ? Math.round(batteryWidget.battery.percentage) + "%" : ""
+    text: batteryWidget.hasBattery ? `${Math.floor(batteryWidget.battery.percentage * 100)}%` : ""
   }
 }
