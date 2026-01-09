@@ -2,12 +2,47 @@
 
 let wallpaper = "${../../assets/wallpapers/warm-texture.jpg}";
 in {
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  home.packages = [
+    # pkgs.uwsm
+
+    # Hyprland
+    pkgs.hyprcursor
+    pkgs.rose-pine-hyprcursor
+    pkgs.hyprpicker
+
+    # GTK
+    # pkgs.gnome-themes-extra
+    # pkgs.rose-pine-cursor
+    # pkgs.dconf
+    # pkgs.glib
+
+    # Clipboard
+    # pkgs.wl-clipboard
+
+    # Screenshots / Recording
+    # pkgs.slurp
+    # pkgs.grim
+    # pkgs.swappy
+    # pkgs.wf-recorder
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
     settings = {
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
+      exec-once = [
+        "ghostty --initial-window=false --quit-after-last-window-closed=false"
+      ];
+      env = [
+        "XCURSOR_SIZE,24"
+        "XCURSOR_THEME,BreezeX-RosePine-Linux"
+        "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+      ];
       input = {
         "kb_layout" = "us,ru";
         "kb_options" = "grp:alt_shift_toggle";
@@ -77,6 +112,21 @@ in {
       ipc = "false";
       preload = [ wallpaper ];
       wallpaper = [ ",${wallpaper}" ];
+    };
+  };
+
+  xdg = {
+    enable = true;
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config = {
+        preffered = {
+          default = [ "hyprland" ];
+          "org.freedesktop.impl.portal.Settings" = "gtk";
+        };
+      };
     };
   };
 }

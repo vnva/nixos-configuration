@@ -2,9 +2,6 @@
 
 let vars = import ../../vars;
 in {
-  # https://nixos.wiki/wiki/Node.js#Install_to_your_home
-  home.sessionPath = [ "$HOME/.npm-global/bin" ];
-
   programs.zsh = {
     enable = true;
     history = {
@@ -13,7 +10,7 @@ in {
       path = "$HOME/.zsh_history";
     };
     antidote = {
-      enable = true;
+      enable = false;
       plugins = [
         "joshskidmore/zsh-fzf-history-search kind:defer"
         "zdharma-continuum/fast-syntax-highlighting kind:defer"
