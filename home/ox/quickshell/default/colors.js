@@ -1,5 +1,6 @@
 .pragma library
 
+var transparentBase00 = "#D9181818";
 var base00 = "#181818";
 var base01 = "#151515";
 var base02 = "#464646";

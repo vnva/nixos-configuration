@@ -7,6 +7,7 @@ let
   colorsFile = pkgs.writeText "colors.js" ''
     .pragma library
 
+    var transparentBase00 = "#D9${colors.base00}";
     var base00 = "#${colors.base00}";
     var base01 = "#${colors.base01}";
     var base02 = "#${colors.base02}";

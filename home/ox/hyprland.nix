@@ -1,7 +1,7 @@
 { config, pkgs, lib, osConfig, ... }:
 
 let
-  wallpaper = "${../../assets/wallpapers/dark-texture.jpg}";
+  wallpaper = "${../../assets/wallpapers/warm-texture.jpg}";
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -59,6 +59,10 @@ in {
 
         # system
         "$mod SHIFT, M, exit"
+
+        # special workspace
+        "$mod, S, togglespecialworkspace, magic"
+        "$mod SHIFT, S, movetoworkspace, special:magic"
       ]
       ++ (builtins.concatLists (builtins.genList (x:
         let workspace = toString (x + 1);

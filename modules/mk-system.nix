@@ -13,7 +13,11 @@ inputs.nixpkgs.lib.nixosSystem (
 
     overlays = [
       (final: prev: rec {
-        quickshell = inputs.quickshell.packages.${system}.default;
+        unstable = import inputs.nixpkgs-unstable { 
+          system = "${prev.system}";
+          config.allowUnfree = true;
+        };
+        quickshell = inputs.quickshell.packages.${prev.system}.default;
       })
     ];
   in {
