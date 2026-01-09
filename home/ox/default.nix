@@ -1,10 +1,16 @@
 { pkgs, config, ... }:
 
 {
-  imports = [ ./stylix.nix ./hyprland.nix ];
-
   home.stateVersion = "25.05";
+
+  home.sessionVariables.EDITOR = "nvim";
   home.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  imports = [
+    ./stylix.nix
+    ./hyprland.nix
+    (import ../../modules/shell { inherit pkgs; })
+  ];
 
   home.packages = [ pkgs.dconf pkgs.rofi-wayland ]
     ++ (import ../../modules/common-user-packages.nix { inherit pkgs; });
