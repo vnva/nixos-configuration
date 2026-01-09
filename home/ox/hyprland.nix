@@ -51,6 +51,7 @@ in {
       bind = [
         # apps
         "$mod, Q, exec, $terminal"
+        "$mod, R, exec, rofi -show drun"
 
         # window
         "$mod, C, killactive"
