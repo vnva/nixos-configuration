@@ -1,8 +1,5 @@
 {
-  imports = [
-    ./disk.nix
-    ./hardware.nix
-  ];
+  imports = [ ./disk.nix ./hardware.nix ];
 
   boot.loader.grub = {
     efiSupport = true;

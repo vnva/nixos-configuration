@@ -1,15 +1,10 @@
 {
-  imports = [
-    ./disk.nix
-    ./hardware.nix
-  ];
+  imports = [ ./disk.nix ./hardware.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking = {
-    networkmanager.enable = true;
-  };
+  networking = { networkmanager.enable = true; };
 
   time.timeZone = "Asia/Krasnoyarsk";
 

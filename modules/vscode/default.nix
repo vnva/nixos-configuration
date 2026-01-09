@@ -36,7 +36,6 @@ in {
     # AI
     # pkgs.vscode-extensions.supermaven.supermaven
 
-
     # JS tooling
     pkgs.vscode-extensions.esbenp.prettier-vscode
     pkgs.vscode-extensions.dbaeumer.vscode-eslint

@@ -27,14 +27,13 @@ let
   '';
 
   # Create a config directory with the colors file
-  configDir = pkgs.runCommand "quickshell-config" {} ''
+  configDir = pkgs.runCommand "quickshell-config" { } ''
     mkdir -p $out
     cp -r ${./default}/* $out/
     rm -rf $out/colors.js
     cp ${colorsFile} $out/colors.js
   '';
-in
-{
+in {
   enable = true;
   package = pkgs.quickshell;
   systemd = {
@@ -42,7 +41,5 @@ in
     target = "hyprland-session.target";
   };
   activeConfig = "default";
-  configs = {
-    default = configDir;
-  };
+  configs = { default = configDir; };
 }

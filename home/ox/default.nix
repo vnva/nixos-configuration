@@ -1,27 +1,37 @@
 { pkgs, config, ... }:
 
 {
-  imports = [
-    ./stylix.nix
-    ./hyprland.nix
-  ];
+  imports = [ ./stylix.nix ./hyprland.nix ];
 
   home.stateVersion = "25.05";
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  home.packages = [
-    pkgs.dconf
-    pkgs.rofi-wayland
-  ] ++ (import ../../modules/common-user-packages.nix { inherit pkgs; });
+  home.packages = [ pkgs.dconf pkgs.rofi-wayland ]
+    ++ (import ../../modules/common-user-packages.nix { inherit pkgs; });
 
   dconf.enable = true;
 
   programs.quickshell = import ./quickshell { inherit pkgs config; };
 
-  programs.vscode = import ../../modules/vscode { inherit pkgs; };
-  programs.ghostty = import ../../modules/ghostty {
+  programs.git = import ../../modules/git { };
+
+  programs.vscode = import ../../modules/vscode {
+    inherit pkgs;
     extraSettings = {
-      background-opacity = 0.85;
+      # ui
+      "window.titleBarStyle" = "custom";
+      "workbench.colorTheme" = "Framer Syntax";
+
+      # fonts
+      "editor.fontLigatures" = true;
+      "terminal.integrated.fontLigatures" = true;
+      "editor.fontFamily" = "${config.stylix.fonts.monospace.name}";
+      "terminal.integrated.fontFamily" =
+        "'${config.stylix.fonts.monospace.name}'";
     };
+  };
+
+  programs.ghostty = import ../../modules/ghostty {
+    extraSettings = { background-opacity = 0.85; };
   };
 }

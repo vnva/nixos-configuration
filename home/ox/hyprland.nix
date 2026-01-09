@@ -1,7 +1,6 @@
 { config, pkgs, lib, osConfig, ... }:
 
-let
-  wallpaper = "${../../assets/wallpapers/warm-texture.jpg}";
+let wallpaper = "${../../assets/wallpapers/warm-texture.jpg}";
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -16,9 +15,8 @@ in {
         "repeat_rate" = 50;
       };
       animations = { enabled = false; };
-      monitor = lib.mkIf (osConfig.networking.hostName == "laptop") [
-        "eDP-1,preferred,auto,1.8"
-      ];
+      monitor = lib.mkIf (osConfig.networking.hostName == "laptop")
+        [ "eDP-1,preferred,auto,2" ];
       general = {
         "gaps_in" = 5;
         "gaps_out" = "5 10 10 10";
@@ -28,9 +26,7 @@ in {
       };
       decoration = {
         "rounding" = 5;
-        shadow = {
-          enabled = false;
-        };
+        shadow = { enabled = false; };
         blur = {
           enabled = true;
           size = 3;
@@ -39,9 +35,7 @@ in {
           noise = 0.2;
         };
       };
-      misc = {
-        "disable_hyprland_logo" = true;
-      };
+      misc = { "disable_hyprland_logo" = true; };
       dwindle = {
         "pseudotile" = true;
         "preserve_split" = true;
@@ -64,20 +58,15 @@ in {
         # special workspace
         "$mod, S, togglespecialworkspace, magic"
         "$mod SHIFT, S, movetoworkspace, special:magic"
-      ]
-      ++ (builtins.concatLists (builtins.genList (x:
+      ] ++ (builtins.concatLists (builtins.genList (x:
         let workspace = toString (x + 1);
         in [
           # Switch to workspace
           "$mod, ${workspace}, workspace, ${workspace}"
           # Move active window to workspace
           "$mod SHIFT, ${workspace}, movetoworkspace, ${workspace}"
-        ]
-      ) 9));
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
+        ]) 9));
+      bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
     };
   };
 

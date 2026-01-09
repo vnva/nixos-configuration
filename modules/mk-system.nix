@@ -7,20 +7,19 @@
 { inputs }:
 { system ? "x86_64-linux", home ? false, host }:
 
-inputs.nixpkgs.lib.nixosSystem (
-  let
-    vars = import ../vars;
+inputs.nixpkgs.lib.nixosSystem (let
+  vars = import ../vars;
 
-    overlays = [
-      (final: prev: rec {
-        unstable = import inputs.nixpkgs-unstable { 
-          system = "${prev.system}";
-          config.allowUnfree = true;
-        };
-        quickshell = inputs.quickshell.packages.${prev.system}.default;
-      })
-    ];
-  in {
+  overlays = [
+    (final: prev: rec {
+      unstable = import inputs.nixpkgs-unstable {
+        system = "${prev.system}";
+        config.allowUnfree = true;
+      };
+      quickshell = inputs.quickshell.packages.${prev.system}.default;
+    })
+  ];
+in {
   inherit system;
 
   modules = [
@@ -47,7 +46,8 @@ inputs.nixpkgs.lib.nixosSystem (
     }
 
     ({ pkgs, ... }: {
-      environment.systemPackages = import ./common-system-packages.nix { inherit pkgs; };
+      environment.systemPackages =
+        import ./common-system-packages.nix { inherit pkgs; };
     })
 
     ./users

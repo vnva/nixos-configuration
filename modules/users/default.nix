@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./root.nix
-    ./vnva.nix
-  ];
-}
+{ imports = [ ./root.nix ./vnva.nix ]; }
