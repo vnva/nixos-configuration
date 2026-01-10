@@ -22,23 +22,29 @@ let
     "editor.tabSize" = 2;
 
     "[nix]" = { "editor.formatOnSave" = true; };
+
+    # updates
+    "extensions.autoUpdate" = false;
   };
 in {
   enable = true;
+
+  package = pkgs.unstable.vscode;
+
   mutableExtensionsDir = true;
 
   profiles.default.userSettings = defaultSettings // extraSettings;
 
   profiles.default.extensions = [
     # Nix
-    pkgs.vscode-extensions.jnoortheen.nix-ide
+    pkgs.unstable.vscode-extensions.jnoortheen.nix-ide
 
     # AI
     # pkgs.vscode-extensions.supermaven.supermaven
 
     # JS tooling
-    pkgs.vscode-extensions.esbenp.prettier-vscode
-    pkgs.vscode-extensions.dbaeumer.vscode-eslint
-    pkgs.vscode-extensions.bradlc.vscode-tailwindcss
+    pkgs.unstable.vscode-extensions.esbenp.prettier-vscode
+    pkgs.unstable.vscode-extensions.dbaeumer.vscode-eslint
+    pkgs.unstable.vscode-extensions.bradlc.vscode-tailwindcss
   ];
 }

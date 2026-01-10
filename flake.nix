@@ -17,15 +17,22 @@
 
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
+
+    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs = { ... }@inputs:
-    let
-      mkSystem = import ./modules/mk-system.nix { inherit inputs; };
+    let mkSystem = import ./modules/mk-system.nix { inherit inputs; };
     in {
       nixosConfigurations = {
-        vm = mkSystem { host = "vm"; home = "ox"; };
-        laptop = mkSystem { host = "laptop"; home = "ox"; };
+        vm = mkSystem {
+          host = "vm";
+          home = "ox";
+        };
+        laptop = mkSystem {
+          host = "laptop";
+          home = "ox";
+        };
       };
     };
 }
