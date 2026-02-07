@@ -52,11 +52,9 @@ in {
       animations = { enabled = false; };
       monitor = lib.mkIf (osConfig.networking.hostName == "laptop")
         [ "eDP-1,preferred,auto,1.5" ];
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 3;
-        workspace_swipe_forever = true;
-      };
+      gesture = [
+        "3, horizontal, workspace"
+      ];
       general = {
         "gaps_in" = 5;
         "gaps_out" = "5 10 10 10";

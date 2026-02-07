@@ -12,11 +12,8 @@
     ../../modules/node
   ];
 
-  home.packages = [
-    pkgs.dconf
-    # TODO: remove rofi
-    pkgs.rofi-wayland
-  ] ++ (import ../../modules/common-user-packages.nix { inherit pkgs; });
+  home.packages = [ pkgs.dconf pkgs.rofi ]
+    ++ (import ../../modules/common-user-packages.nix { inherit pkgs; });
 
   dconf.enable = true;
 
