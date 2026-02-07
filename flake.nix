@@ -15,9 +15,6 @@
     stylix.url = "github:nix-community/stylix?ref=release-25.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    quickshell.inputs.nixpkgs.follows = "nixpkgs";
-
     llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
