@@ -25,7 +25,7 @@
     inherit pkgs;
     extraSettings = {
       # ui
-      "window.titleBarStyle" = "custom";
+      "window.titleBarStyle" = "native";
       "workbench.colorTheme" = "Framer Syntax";
 
       # fonts
