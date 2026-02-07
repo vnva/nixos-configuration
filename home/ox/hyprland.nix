@@ -1,6 +1,6 @@
 { config, pkgs, lib, osConfig, ... }:
 
-let wallpaper = "${../../assets/wallpapers/warm-texture.jpg}";
+let wallpaper = "${../../assets/wallpapers/blue-texture.jpg}";
 in {
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -52,9 +52,7 @@ in {
       animations = { enabled = false; };
       monitor = lib.mkIf (osConfig.networking.hostName == "laptop")
         [ "eDP-1,preferred,auto,1.5" ];
-      gesture = [
-        "3, horizontal, workspace"
-      ];
+      gesture = [ "3, horizontal, workspace" ];
       general = {
         "gaps_in" = 5;
         "gaps_out" = "5 10 10 10";

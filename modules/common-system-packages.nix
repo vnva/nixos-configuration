@@ -14,4 +14,5 @@
   pkgs.unzip
   pkgs.wget
   pkgs.whois
+  pkgs.neovim
 ]
