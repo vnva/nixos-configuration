@@ -1,7 +1,6 @@
 { osConfig, pkgs, lib, ... }:
 
 {
-  services.upower.enable = true;
 
   # ========= HYPRLAND GTK FIXES ========
   # https://github.com/matthewpi/nixos-config/blob/0965250feda8fa3d386cda3605cf6974b1320eb6/modules/hyprland/default.nix#L84
@@ -21,7 +20,10 @@
 
   # ========= END HYPRLAND GTK FIXES ========
 
-  # for vscode
-  fonts.packages =
-    [ pkgs.inter pkgs.nerd-fonts.zed-mono pkgs.noto-fonts-color-emoji ];
+
+  # for battery status
+  services.upower.enable = true;
+
+  # fonts
+  fonts.packages =  [ pkgs.inter pkgs.nerd-fonts.zed-mono pkgs.noto-fonts-color-emoji ];
 }

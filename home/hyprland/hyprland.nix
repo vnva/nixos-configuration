@@ -4,9 +4,10 @@
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   home.packages = [
-    # Hyprland
+    # Cursors
     pkgs.hyprcursor
     pkgs.rose-pine-hyprcursor
+    pkgs.rose-pine-cursor
   ];
 
   wayland.windowManager.hyprland = {

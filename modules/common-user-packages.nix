@@ -1,20 +1,20 @@
 { pkgs }:
 
 [
-  # social
-  pkgs.unstable.telegram-desktop
-
-  # browsers
-  pkgs.google-chrome
-
-  # utilities
-  pkgs.obs-studio
-
-  # docs
-  pkgs.obsidian
-
   # ai
   pkgs.amp
   pkgs.claude-code
   pkgs.codex
+
+  # browsers
+  pkgs.google-chrome
+
+  # docs
+  pkgs.obsidian
+
+  # social
+  pkgs.unstable.telegram-desktop
+
+  # utilities
+  pkgs.obs-studio
 ]
