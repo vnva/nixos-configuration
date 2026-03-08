@@ -4,9 +4,6 @@
   stylix = {
     enable = true;
     overlays.enable = false;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/ia-dark.yaml";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/isotope.yaml";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/framer.yaml";
     polarity = "dark";
 
