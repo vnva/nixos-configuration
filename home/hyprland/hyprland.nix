@@ -72,27 +72,12 @@
         "$mod, F, fullscreen"
         "$mod, V, togglefloating"
 
-        "$mod, H, movefocus, l"
-        "$mod, J, movefocus, d"
-        "$mod, K, movefocus, u"
-        "$mod, L, movefocus, r"
-
-        "$mod SHIFT, H, movewindow, l"
-        "$mod SHIFT, J, movewindow, d"
-        "$mod SHIFT, K, movewindow, u"
-        "$mod SHIFT, L, movewindow, r"
-
-        "$mod CTRL, H, resizeactive, -30 0"
-        "$mod CTRL, J, resizeactive, 0 30"
-        "$mod CTRL, K, resizeactive, 0 -30"
-        "$mod CTRL, L, resizeactive, 30 0"
-
         "$mod, TAB, workspace, e+1"
         "$mod SHIFT, TAB, workspace, e-1"
 
         "$mod, BRACKETRIGHT, workspace, e+1"
         "$mod, BRACKETLEFT, workspace, e-1"
-        
+
         "$mod SHIFT, BRACKETRIGHT, movetoworkspace, e+1"
         "$mod SHIFT, BRACKETLEFT, movetoworkspace, e-1"
 
