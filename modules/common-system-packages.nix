@@ -1,18 +1,22 @@
 { pkgs }:
 
 [
+  # network
   pkgs.curl
-  pkgs.fastfetch
-  pkgs.git
+  pkgs.wget
+  pkgs.mtr
+  pkgs.nmap
+  pkgs.whois
+
+  # utils
   pkgs.jq
   pkgs.just
-  pkgs.mtr
-  pkgs.nixfmt-classic
-  pkgs.nmap
   pkgs.sops
-  pkgs.tree
   pkgs.unzip
-  pkgs.wget
-  pkgs.whois
+  pkgs.tree
+
+  # development
+  pkgs.git
+  pkgs.nixfmt-classic
   pkgs.neovim
 ]
