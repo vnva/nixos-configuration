@@ -7,7 +7,6 @@ deploy HOST_NAME TARGET_HOST:
 self HOST_NAME:
   sudo nixos-rebuild switch --flake .#{{HOST_NAME}}
   
-
 quickshell:
   quickshell -p ./home/ox/quickshell/default
 
