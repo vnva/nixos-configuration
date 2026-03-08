@@ -2,7 +2,7 @@
 
 [
   # social
-  pkgs.telegram-desktop
+  pkgs.unstable.telegram-desktop
 
   # browsers
   pkgs.google-chrome
