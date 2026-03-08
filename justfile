@@ -10,3 +10,13 @@ self HOST_NAME:
 
 quickshell:
   quickshell -p ./home/ox/quickshell/default
+
+update:
+  nix flake update
+
+update-input INPUT:
+  nix flake lock --update-input {{INPUT}}
+
+update-and-rebuild HOST_NAME:
+  nix flake update
+  sudo nixos-rebuild switch --flake .#{{HOST_NAME}}
