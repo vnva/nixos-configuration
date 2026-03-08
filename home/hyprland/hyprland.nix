@@ -31,8 +31,10 @@
         "repeat_rate" = 50;
       };
       animations = { enabled = false; };
-      monitor = lib.mkIf (osConfig.networking.hostName == "laptop")
-        [ "eDP-1,preferred,auto,1.5" ];
+      monitor =
+        if osConfig.networking.hostName == "laptop"
+        then [ "eDP-1,preferred,auto,1.5" ]
+        else [ ];
       gesture = [ "3, horizontal, workspace" ];
       general = {
         "gaps_in" = 5;
