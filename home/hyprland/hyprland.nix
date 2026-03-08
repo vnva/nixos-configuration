@@ -5,27 +5,9 @@ in {
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   home.packages = [
-    # pkgs.uwsm
-
     # Hyprland
     pkgs.hyprcursor
     pkgs.rose-pine-hyprcursor
-    pkgs.hyprpicker
-
-    # GTK
-    # pkgs.gnome-themes-extra
-    # pkgs.rose-pine-cursor
-    # pkgs.dconf
-    # pkgs.glib
-
-    # Clipboard
-    # pkgs.wl-clipboard
-
-    # Screenshots / Recording
-    # pkgs.slurp
-    # pkgs.grim
-    # pkgs.swappy
-    # pkgs.wf-recorder
   ];
 
   wayland.windowManager.hyprland = {
