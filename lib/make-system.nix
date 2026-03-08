@@ -1,9 +1,3 @@
-# Creates a NixOS system configuration
-# 
-# Takes inputs (with nixpkgs) and returns a function that accepts:
-#   - system: CPU architecture (default: "x86_64-linux")
-#   - host: Host name for loading from hosts/${host}
-
 { inputs }:
 { system ? "x86_64-linux", home ? false, host }:
 
@@ -49,10 +43,10 @@ in {
 
     ({ pkgs, ... }: {
       environment.systemPackages =
-        import ./common-system-packages.nix { inherit pkgs; };
+        import ../modules/common-system-packages.nix { inherit pkgs; };
     })
 
-    ./users
+    ../modules/system/users
     ../hosts/${host}
   ] ++ (inputs.nixpkgs.lib.optionals (builtins.isString home) [
     (if builtins.pathExists ../home/${home}/extra.nix then

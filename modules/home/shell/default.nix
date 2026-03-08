@@ -1,6 +1,6 @@
 { pkgs }:
 
-let vars = import ../../vars;
+let vars = import ../../../vars;
 in {
   programs.zsh = {
     enable = true;

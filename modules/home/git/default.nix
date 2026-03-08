@@ -1,6 +1,6 @@
 { }:
 
-let vars = import ../../vars;
+let vars = import ../../../vars;
 in {
   enable = true;
   settings = {

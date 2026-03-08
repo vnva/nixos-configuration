@@ -8,8 +8,8 @@
   imports = [
     ./stylix.nix
     ./hyprland.nix
-    (import ../../modules/shell { inherit pkgs; })
-    ../../modules/node
+    (import ../../modules/home/shell { inherit pkgs; })
+    ../../modules/home/node
   ];
 
   home.packages = [ pkgs.dconf pkgs.rofi ]
@@ -17,9 +17,9 @@
 
   dconf.enable = true;
 
-  programs.git = import ../../modules/git { };
+  programs.git = import ../../modules/home/git { };
 
-  programs.vscode = import ../../modules/vscode {
+  programs.vscode = import ../../modules/home/vscode {
     inherit pkgs;
     extraSettings = {
       # ui
@@ -35,7 +35,7 @@
     };
   };
 
-  programs.ghostty = import ../../modules/ghostty {
+  programs.ghostty = import ../../modules/home/ghostty {
     extraSettings = { background-opacity = 0.85; };
   };
 }

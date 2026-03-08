@@ -19,10 +19,10 @@
   };
 
   outputs = { ... }@inputs:
-    let mkSystem = import ./modules/mk-system.nix { inherit inputs; };
+    let makeSystem = import ./lib/make-system.nix { inherit inputs; };
     in {
       nixosConfigurations = {
-        laptop = mkSystem {
+        laptop = makeSystem {
           host = "laptop";
           home = "hyprland";
         };
