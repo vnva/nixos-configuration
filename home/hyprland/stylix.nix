@@ -4,7 +4,6 @@
   stylix = {
     enable = true;
     overlays.enable = false;
-    # image = ../../assets/wallpapers/anime-dark.png;
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/ia-dark.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/isotope.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";

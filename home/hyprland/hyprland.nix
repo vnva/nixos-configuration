@@ -1,7 +1,6 @@
 { config, pkgs, lib, osConfig, ... }:
 
-let wallpaper = "${../../assets/wallpapers/blue-texture.jpg}";
-in {
+{
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   home.packages = [
@@ -88,15 +87,7 @@ in {
     };
   };
 
-  services.hyprpaper = {
-    enable = true;
-    package = pkgs.hyprpaper;
-    settings = {
-      ipc = "false";
-      preload = [ wallpaper ];
-      wallpaper = [ ",${wallpaper}" ];
-    };
-  };
+  services.swww = { enable = true; };
 
   xdg = {
     enable = true;
