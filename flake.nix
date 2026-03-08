@@ -22,13 +22,9 @@
     let mkSystem = import ./modules/mk-system.nix { inherit inputs; };
     in {
       nixosConfigurations = {
-        vm = mkSystem {
-          host = "vm";
-          home = "ox";
-        };
         laptop = mkSystem {
           host = "laptop";
-          home = "ox";
+          home = "hyprland";
         };
       };
     };

@@ -17,8 +17,6 @@
 
   dconf.enable = true;
 
-  programs.quickshell = import ./quickshell { inherit pkgs config; };
-
   programs.git = import ../../modules/git { };
 
   programs.vscode = import ../../modules/vscode {

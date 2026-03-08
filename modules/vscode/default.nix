@@ -14,8 +14,6 @@ let
     "window.commandCenter" = false;
 
     # disable default ai
-    "chat.commandCenter.enabled" = false;
-    "chat.agent.enabled" = false;
     "chat.disableAIFeatures" = true;
 
     # editor
