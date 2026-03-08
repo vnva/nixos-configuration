@@ -38,7 +38,7 @@ in {
     pkgs.unstable.vscode-extensions.jnoortheen.nix-ide
 
     # AI
-    # pkgs.vscode-extensions.supermaven.supermaven
+    pkgs.unstable.vscode-extensions.supermaven.supermaven
 
     # JS tooling
     pkgs.unstable.vscode-extensions.esbenp.prettier-vscode
