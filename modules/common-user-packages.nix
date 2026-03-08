@@ -16,4 +16,5 @@
   # ai
   pkgs.amp
   pkgs.claude-code
+  pkgs.codex
 ]

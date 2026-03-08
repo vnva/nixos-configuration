@@ -17,6 +17,7 @@ inputs.nixpkgs.lib.nixosSystem (let
         config.allowUnfree = true;
       };
       claude-code = inputs.llm-agents.packages.${prev.system}.claude-code;
+      codex = inputs.llm-agents.packages.${prev.system}.codex;
       amp = inputs.llm-agents.packages.${prev.system}.amp;
     })
   ];
